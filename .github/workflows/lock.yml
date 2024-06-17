@@ -1,7 +1,7 @@
 name: Lock threads
 
 on:
-  # Daily
+  # Daily test
   schedule:
     - cron: '0 0 * * *'
   # Manual trigger
