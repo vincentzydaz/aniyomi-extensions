@@ -21,6 +21,8 @@ env:
 jobs:
   prepare:
     name: Prepare job
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     outputs:
       individualMatrix: ${{ steps.generate-matrices.outputs.individualMatrix }}
