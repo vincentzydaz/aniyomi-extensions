@@ -122,8 +122,6 @@ jobs:
 
   publish_repo:
     name: Publish repo
-    permissions:
-      contents: write
     needs:
       - build_individual
     runs-on: ubuntu-latest
@@ -171,10 +169,7 @@ jobs:
           git_commit_gpgsign: true
           workdir: repo
 
-      - name: Make the commit-repo.sh script executable
-        run: chmod +x ./.github/scripts/commit-repo.sh
-
       - name: Deploy repo
         run: |
-         cd repo
-         ../master/.github/scripts/commit-repo.sh
+          cd repo
+          ../master/.github/scripts/commit-repo.sh
