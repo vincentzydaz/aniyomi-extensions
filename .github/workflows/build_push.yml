@@ -171,7 +171,7 @@ jobs:
 
       - name: Deploy repo
         env:
-          GITHUB_TOKEN: ${{ secrets.ANIYOMIORG_BOT_PAT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           cd repo
           ../master/.github/scripts/commit-repo.sh
