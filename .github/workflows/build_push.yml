@@ -174,15 +174,11 @@ jobs:
           cd repo
           rsync -a --delete --exclude .git --exclude .gitignore ../master/repo/ .
 
-      - name: Set up Git
+      - name: Commit files
         run: |
-          git config --global user.email "dantotsubot@gmail.com"
-          git config --global user.name "Dantotsu-Bot"
-          git remote set-url origin https://Dantotsu-Bot:${{ secrets.ANIYOMIORG_BOT_PAT }}@github.com/Sadwhy/aniyomi-extensions.git
-
-      - name: Commit and push changes if any
-        run: |
-          git status
+         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+         git config --local user.name "github-actions[bot]"
+         git status
           if [ -n "$(git status --porcelain)" ]; then
               git add .
               git commit -S -m "Update extensions repo"
@@ -191,3 +187,9 @@ jobs:
               curl https://purge.jsdelivr.net/gh/Sadwhy/aniyomi-extensions@repo/index.min.json
           else
               echo "No changes to commit"
+         
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+         github_token: ${{ secrets.GITHUB_TOKEN }}
+         branch: repo
