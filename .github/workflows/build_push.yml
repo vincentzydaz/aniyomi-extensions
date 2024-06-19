@@ -169,16 +169,10 @@ jobs:
           git_commit_gpgsign: true
           workdir: repo
 
-      - name: Sync with repo
-        run: |
-          cd repo
-          ls
-          rsync -a --delete --exclude .git --exclude .gitignore ../master/repo/ .
-
       - name: Commit files
         run: |
-         ls
          cd repo
+         rsync -a --delete --exclude .git --exclude .gitignore ../master/repo/ .
          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
          git config --local user.name "github-actions[bot]"
          git status
@@ -186,7 +180,6 @@ jobs:
               git add .
               git commit -S -m "Update extensions repo"
               git push
-              # Purge cached index on jsDelivr
               curl https://purge.jsdelivr.net/gh/Sadwhy/aniyomi-extensions@repo/index.min.json
           else
               echo "No changes to commit"
