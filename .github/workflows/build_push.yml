@@ -169,9 +169,25 @@ jobs:
           git_commit_gpgsign: true
           workdir: repo
 
-      - name: Deploy repo
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Sync with repo
         run: |
           cd repo
-          ../master/.github/scripts/commit-repo.sh
+          rsync -a --delete --exclude .git --exclude .gitignore ../master/repo/ .
+
+      - name: Set up Git
+        run: |
+          git config --global user.email "dantotsubot@gmail.com"
+          git config --global user.name "Dantotsu-Bot"
+          git remote set-url origin https://dantotsubot:${{ secrets.ANIYOMIORG_BOT_PAT }}@github.com/${{ github.repository }}.git
+
+      - name: Commit and push changes if any
+        run: |
+          git status
+          if [ -n "$(git status --porcelain)" ]; then
+              git add .
+              git commit -S -m "Update extensions repo"
+              git push
+              # Purge cached index on jsDelivr
+              curl https://purge.jsdelivr.net/gh/Sadwhy/aniyomi-extensions@repo/index.min.json
+          else
+              echo "No changes to commit"
