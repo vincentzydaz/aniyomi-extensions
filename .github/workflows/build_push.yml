@@ -175,7 +175,14 @@ jobs:
          rsync -a --delete --exclude .git --exclude .gitignore ../master/repo/ .
          git config --local user.email "Dantotsu-Bot@users.noreply.github.com"
          git config --local user.name "Dantotsu-Bot"
-         git commit -a -m "Update extensions repo"
          git remote set-url origin https://Dantotsu-Bot:${{ secrets.ANIYOMIORG_BOT_PAT }}@github.com/Sadwhy/aniyomi-extensions.git
-         git push -u origin repo
-         curl https://purge.jsdelivr.net/gh/Sadwhy/aniyomi-extensions@repo/index.min.json
+         git status
+            if [ -n "$(git status --porcelain)" ]; then
+               git add .
+               git commit -S -m "Update extensions repo"
+               git push -u origin repo
+               curl https://purge.jsdelivr.net/gh/Sadwhy/aniyomi-extensions@repo/index.min.json
+         else
+               echo "No changes to commit"
+         fi
+         
