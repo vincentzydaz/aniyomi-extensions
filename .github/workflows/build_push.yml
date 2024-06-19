@@ -175,17 +175,12 @@ jobs:
          rsync -a --delete --exclude .git --exclude .gitignore ../master/repo/ .
          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
          git config --local user.name "github-actions[bot]"
-         git status
-          if [ -n "$(git status --porcelain)" ]; then
-              git add .
-              git commit -S -m "Update extensions repo"
-              git push
-              curl https://purge.jsdelivr.net/gh/Sadwhy/aniyomi-extensions@repo/index.min.json
-          else
-              echo "No changes to commit"
+         git commit -a -m "Update extensions repo"
+         curl https://purge.jsdelivr.net/gh/Sadwhy/aniyomi-extensions@repo/index.min.json
          
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
          github_token: ${{ secrets.GITHUB_TOKEN }}
+         force_with_lease: true
          branch: repo
