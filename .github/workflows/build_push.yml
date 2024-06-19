@@ -172,10 +172,12 @@ jobs:
       - name: Sync with repo
         run: |
           cd repo
+          ls
           rsync -a --delete --exclude .git --exclude .gitignore ../master/repo/ .
 
       - name: Commit files
         run: |
+         ls
          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
          git config --local user.name "github-actions[bot]"
          git status
