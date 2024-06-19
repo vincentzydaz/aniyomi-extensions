@@ -178,7 +178,7 @@ jobs:
         run: |
           git config --global user.email "dantotsubot@gmail.com"
           git config --global user.name "Dantotsu-Bot"
-          git remote set-url origin https://dantotsubot:${{ secrets.ANIYOMIORG_BOT_PAT }}@github.com/Sadwhy/aniyomi-extensions.git
+          git remote set-url origin https://Dantotsu-Bot:${{ secrets.ANIYOMIORG_BOT_PAT }}@github.com/Sadwhy/aniyomi-extensions.git
 
       - name: Commit and push changes if any
         run: |
