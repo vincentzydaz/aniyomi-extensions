@@ -1,33 +1,25 @@
-| Build | Support Server |
-|-------|---------|
-| ![CI](https://github.com/aniyomiorg/aniyomi-extensions/workflows/CI/badge.svg?event=push) | [![Discord](https://img.shields.io/discord/841701076242530374?label=discord&labelColor=7289da&color=2c2f33&style=flat)](https://discord.gg/F32UjdJZrR) |
+| Build |
+|------------|
+| ![CI](https://github.com/Sadwhy/aniyomi-extensions/workflows/CI/badge.svg?event=push) |
 
-# ![app icon](./.github/readme-images/app-icon.png)Aniyomi Extensions
-Aniyomi is a free and open source manga reader for Android 6.0 and above.
+# Aniyomi Extensions Archive
 
-This repository contains the available extension catalogues for the [Aniyomi](https://github.com/aniyomiorg/aniyomi) fork.
+This repository contains the all the extensions that the [Aniyomi](https://github.com/aniyomiorg/aniyomi) repository had before the takedown.
 
 # Usage
 
-Extension sources can be downloaded, installed, and uninstalled via the main Aniyomi app. They are installed and uninstalled like regular apps, in `.apk` format.
+Put this link in your Repository settings in the app you're using.
+```
+https://raw.githubusercontent.com/Sadwhy/aniyomi-extensions/repo/index.min.json
+```
 
 ## Downloads
 
-If you prefer to directly download the APK files, they are available via https://aniyomi.org/extensions/ or directly in this GitHub repository in the [`repo` branch](https://github.com/aniyomiorg/aniyomi-extensions/tree/repo/apk).
+If you prefer to directly download the APK files, they are available in this GitHub repository in the [repo](https://github.com/Sadwhy/aniyomi-extensions/tree/repo/apk) branch.
 
-# Requests
+# Updates
 
-Source requests here are meant as up-for-grabs for any developer, thus it's impossible to provide a time estimation for any of them. Furthermore, some sites are impossible to do, usually because of various technical reasons.
-
-# Contributing
-
-Contributions are welcome!
-
-Check out the repo's [issue backlog](https://github.com/aniyomiorg/aniyomi-extensions/issues) for source requests and bug reports.
-
-To get started with development, see [CONTRIBUTING.md](./CONTRIBUTING.md).
-
-It might also be good to read our [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md).
+Since this is an archive there will probably be no updates to any of the extensions.
 
 ## License
 
