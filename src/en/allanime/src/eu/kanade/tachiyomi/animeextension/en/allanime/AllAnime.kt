@@ -472,7 +472,7 @@ class AllAnime : ConfigurableAnimeSource, AnimeHttpSource() {
         private const val PREF_SITE_DOMAIN_DEFAULT = "https://allanime.to"
 
         private const val PREF_DOMAIN_KEY = "preferred_domain"
-        private const val PREF_DOMAIN_DEFAULT = "https://api.allanime.day"
+        private const val PREF_DOMAIN_DEFAULT = "https://allmanga.to"
 
         private const val PREF_SERVER_KEY = "preferred_server"
         private val PREF_SERVER_ENTRIES = arrayOf("Site Default") +
